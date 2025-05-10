@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ansh Kumar - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent1: #5ee7df;
+      --accent2: #b490ca;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --column-bg: rgba(255, 255, 255, 0.2);
+      --column-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Outfit', sans-serif;
+      color: var(--column-text);
+      background: #111;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 200%;
+      width: 100%;
+      background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&auto=format&fit=crop&w=3450&q=80") repeat;
+      background-size: cover;
+      animation: scroll 100s linear infinite;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.07), transparent 70%);
+      filter: blur(30px);
+      animation: drift 20s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    .shape.one {
+      width: 200px;
+      height: 200px;
+      top: 15%;
+      left: 10%;
+    }
+
+    .shape.two {
+      width: 300px;
+      height: 300px;
+      bottom: 10%;
+      right: 15%;
+      animation-delay: 3s;
+    }
+
+    @keyframes drift {
+      from { transform: translateY(0px) rotate(0deg); }
+      to { transform: translateY(-40px) rotate(20deg); }
+    }
+
+    .grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+    }
+
+    .wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 4rem 2rem;
+      z-index: 2;
+    }
+
+    .title {
+      font-family: 'Lobster', cursive;
+      font-size: 3rem;
+      background: linear-gradient(to right, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .columns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .column {
+      background: white;
+      color: #111;
+      border-radius: 16px;
+      padding: 2rem;
+      min-width: 280px;
+      width: 30%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .column:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .column h2 {
+      font-size: 1.5rem;
+      color: var(--accent2);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+
+    .info {
+  text-align: center;
+  margin-top: 2rem;
+  color: #fff;
+  font-size: 1.1rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+.info p {
+  margin: 0.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.info p i {
+  color: var(--accent1);
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.info a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent2);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+}
+
+.info a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.info p:hover {
+  transform: translateX(6px);
+}
+
+.info p:hover i {
+  transform: scale(1.3) rotate(10deg);
+  text-shadow: 0 0 8px var(--accent1), 0 0 14px var(--accent2);
+}
+
+.info p:hover a {
+  color: var(--accent1);
+  text-shadow: 0 0 8px var(--accent2);
+}
+
+.info p:hover a::after {
+  transform: scaleX(1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+     
+    .profile-pic {
+      width: 152px;
+      height: 152px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--accent1);
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+      transition: transform 0.4s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(360deg);
+    }
+
+    .projects, .interests {
+      background: rgb(165, 82, 214);
+      color: #111;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .projects h2, .interests h2 {
+      color: var(--accent1);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #6b5a5a;
+      padding-bottom: 0.5rem;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(145deg, var(--accent1), var(--accent2));
+      color: #111;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      box-shadow: 0 10px 20px rgba(180, 144, 202, 0.5);
+      transform: scale(1.05);
+    }
+    .skills-list {
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    }
+
+    .skills-list ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .skills-list li {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .skills-list li:hover {
+        transform: translateX(10px);
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .skills-list strong {
+        color: var(--accent1);
+        font-weight: 600;
+    }
+
+    /* Vibrant Borders for Columns */
+        .column {
+    background: white;
+    color: #111;
+    border-radius: 16px;
+    padding: 2rem;
+    min-width: 280px;
+    width: 30%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    }
+
+    .column::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    border-radius: 20px;
+    filter: blur(4px);
+    animation: borderPulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes borderPulse {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    }
+
+    /* Interactive Effects for Projects and Interests */
+    .projects, .interests {
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    z-index: 1;
+    }
+
+    .projects::before, .interests::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    border-radius: 22px;
+    z-index: -1;
+    filter: blur(6px);
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+    }
+
+    .projects:hover, .interests:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 10px 25px rgba(6, 113, 106, 0.3), 0 0 18px rgba(71, 5, 112, 0.4);
+    }
+
+    .projects:hover::before, .interests:hover::before {
+    opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="shape one"></div>
+  <div class="shape two"></div>
+  <div class="grid"></div>
+
+  <div class="wrapper">
+    <h1 class="title">Ansh Kumar</h1>
+    <div class="profile-pic">
+      <img src="ansh.jpeg" alt="Profile" width="143" height="150">
+    </div>
+
+    <div class="info">
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:ansh7405@gmail.com" target="_blank">ansh7405@gmail.com</a>
+        </p>
+        <p>
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:913311221" target="_blank">+91 913311221</a>
+        </p>
+        <p>
+          <i class="fas fa-map-marker-alt"></i>
+          <a href="https://www.google.com/maps/place/New+Delhi" target="_blank">New Delhi</a>
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/ansh-kumar-587b13341" target="_blank">LinkedIn</a>
+        </p>
+        <p>
+          <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/itx_ansh.07/" target="_blank">@itx_ansh.07</a>
+        </p>
+      </div>
+      
+    <div class="columns">
+      <div class="column">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm Ansh, a passionate B.Tech student with a strong interest in technology, design, and the world around me. I enjoy diving deep into coding—particularly in C and Python—and I'm constantly building and improving projects that solve real-world problems. Alongside my love for logic and algorithms, I'm also exploring the creative side of tech through web design and graphic designing, blending aesthetics with functionality.
+
+            Beyond programming, I have a keen interest in geopolitics, always curious about global affairs and how they shape the world. My current research centers on the Physics of Artificial Intelligence, where I’m exploring the intersection of theoretical science and emerging technologies.
+
+            Looking ahead, I aim to pursue higher studies abroad to deepen my knowledge and contribute meaningfully to cutting-edge innovation in AI and related fields.
+        </p>
+      </div>
+      <div class="column">
+        <h2>Skills</h2>
+        <p class="skills-list">
+            <ul>
+                <li><strong>Programming Languages:</strong> C, Python, JavaScript</li>
+                <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Responsive Design</li>
+                <li><strong>Data Structures & Algorithms:</strong> Linked Lists, Trees, Graphs, Dynamic Programming</li>
+                <li><strong>Design Tools:</strong> Figma, Adobe Photoshop (basic level), Canva</li>
+                <li><strong>AI/ML Interest Areas:</strong> Physics of AI, Neural Networks, Machine Learning Fundamentals</li>
+                <li><strong>Soft Skills:</strong> Problem-Solving, Creative Thinking, Research-Oriented, Curiosity for Global Affairs</li>
+            </ul>
+        </p>
+          
+        
+      </div>
+      <div class="column">
+        <h2>Education</h2>
+        <p class="skills-list">
+            <ul>
+                <li><strong>Primary Schooling: </strong>Silver Line Prestige School</li>
+                <li><strong>Middle School: </strong>American University Of Nigeria</li>
+                <li><strong>Secondary School: </strong>Silver Line Prestige School</li>
+                <li><strong>Undergraduate: </strong>South Asian University</li> 
+            </ul>
+        </p>
+        
+      </div>
+    </div>
+
+    <div class="projects">
+      <h2>Projects</h2>
+      <p>- E-commerce record management in C with file handling<br>- Linked List-based directory system<br>- Hotel Management Software using Python and SQL</p>
+    </div>
+
+    <div class="interests">
+      <h2>Interests</h2>
+      <p>Coding, AI/ML, Design, Chess, Exploring Tech</p>
+    </div>
+
+    <button class="btn">Download Resume</button>
+  </div>
+</body>
+</html>
